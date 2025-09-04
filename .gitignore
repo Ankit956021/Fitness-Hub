@@ -10,6 +10,15 @@
 !.yarn/releases
 !.yarn/versions
 
+# Local env files
+.env*.local
+.env
+
+# Test files (don't upload to GitHub)
+test-db.mjs
+check-data.mjs
+add-sample-data.js
+
 # testing
 /coverage
 

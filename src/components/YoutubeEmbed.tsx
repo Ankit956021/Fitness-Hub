@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 interface YoutubeEmbedProps {
   videoId: string;
   title?: string;
@@ -72,9 +74,11 @@ export function YoutubeThumbnail({
       className={`relative cursor-pointer group overflow-hidden ${className}`}
       onClick={onClick}
     >
-      <img
+      <Image
         src={getYoutubeThumbnail(videoId, 'maxres')}
         alt={title}
+        width={480}
+        height={270}
         className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
         style={{ aspectRatio: '16/9' }}
         onError={(e) => {

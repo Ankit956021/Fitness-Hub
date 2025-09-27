@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Play, Clock, Flame, Users } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const workouts = [
   {
@@ -76,9 +77,11 @@ export function FeaturedWorkouts() {
               className="group bg-gray-800 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative">
-                <img 
+                <Image 
                   src={workout.thumbnail} 
                   alt={workout.title}
+                  width={400}
+                  height={192}
                   className="w-full h-48 object-cover"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>

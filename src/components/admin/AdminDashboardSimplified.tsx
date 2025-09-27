@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { 
   BarChart3, 
@@ -19,6 +19,7 @@ import {
 import { databases, DATABASE_ID, COLLECTIONS } from '@/lib/appwrite';
 import { Coach } from '@/types/appwrite';
 import { ID } from 'appwrite';
+import Image from 'next/image';
 
 const stats = [
   {
@@ -47,7 +48,7 @@ const stats = [
 export function AdminDashboardSimplified() {
   const [activeTab, setActiveTab] = useState('overview');
   const [coaches, setCoaches] = useState<Coach[]>([]);
-  const [loading, setLoading] = useState(false);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [showCoachForm, setShowCoachForm] = useState(false);
   const [editingCoach, setEditingCoach] = useState<Coach | null>(null);
@@ -60,22 +61,19 @@ export function AdminDashboardSimplified() {
     { id: 'settings', label: 'Settings', icon: Settings }
   ];
 
-  const fetchCoaches = async () => {
-    setLoading(true);
+  const fetchCoaches = useCallback(async () => {
     try {
       const response = await databases.listDocuments(DATABASE_ID, COLLECTIONS.COACHES);
       setCoaches(response.documents as unknown as Coach[]);
     } catch (error) {
       console.error('Error fetching coaches:', error);
       showToast('Error fetching coaches', 'error');
-    } finally {
-      setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchCoaches();
-  }, []);
+  }, [fetchCoaches]);
 
   const showToast = (message: string, type: 'success' | 'error') => {
     setToastMessage(message);
@@ -250,9 +248,11 @@ export function AdminDashboardSimplified() {
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <img
+                        <Image
                           src={coach.imageUrl || '/api/placeholder/60/60'}
                           alt={coach.name}
+                          width={48}
+                          height={48}
                           className="w-12 h-12 rounded-full object-cover"
                         />
                         <div>

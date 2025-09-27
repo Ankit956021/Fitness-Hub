@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import { Play, Clock, Flame, Star, Bookmark } from 'lucide-react';
+import { Clock, Flame, Star, Bookmark } from 'lucide-react';
 import Link from 'next/link';
 import { YoutubeThumbnail } from './YoutubeEmbed';
 import { getAllWorkouts, extractYouTubeVideoId } from '@/lib/appwrite';
@@ -93,7 +93,7 @@ export function WorkoutsList({
       
       return true;
     });
-  }, [selectedCategory, selectedDifficulty, selectedDuration, searchTerm]);
+  }, [workouts, selectedCategory, selectedDifficulty, selectedDuration, searchTerm]);
 
   if (loading) {
     return (

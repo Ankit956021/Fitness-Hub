@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Star, CheckCircle, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const benefits = [
@@ -125,9 +126,11 @@ export function CoachingCTA() {
                 className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
               >
                 <div className="flex items-start gap-4">
-                  <img 
+                  <Image 
                     src={testimonial.image} 
                     alt={testimonial.name}
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full object-cover"
                   />
                   <div className="flex-1">

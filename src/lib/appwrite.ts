@@ -65,8 +65,8 @@ export async function getWorkoutsByCategory(category: string) {
         // Add query filters if needed
       ]
     );
-    return response.documents.filter((workout: any) => 
-      workout.category.toLowerCase() === category.toLowerCase()
+    return response.documents.filter((workout: unknown) => 
+      (workout as { category: string }).category.toLowerCase() === category.toLowerCase()
     );
   } catch (error) {
     console.error('Error fetching workouts by category:', error);

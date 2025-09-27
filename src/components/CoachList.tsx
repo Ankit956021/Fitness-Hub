@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, Calendar, MessageCircle, Award } from 'lucide-react';
+import { Star, Award, MessageCircle, Calendar } from 'lucide-react';
+import Image from 'next/image';
 
 const coaches = [
   {
@@ -87,9 +88,11 @@ export function CoachList() {
             >
               {/* Coach Image */}
               <div className="relative">
-                <img 
+                <Image 
                   src={coach.image} 
                   alt={coach.name}
+                  width={400}
+                  height={256}
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute top-4 right-4 bg-black/70 rounded-full px-3 py-1 flex items-center gap-1">

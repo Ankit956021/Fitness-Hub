@@ -1,19 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Clock, Users, TrendingUp, Star, Play, Dumbbell } from 'lucide-react';
 import Image from 'next/image';
-import { databases, DATABASE_ID, COLLECTIONS } from '@/lib/appwrite';
+import { databases, DATABASE_ID } from '@/lib/appwrite';
 import { WorkoutPlan } from '@/types/appwrite';
 
 export function WorkoutPlansFromAppwrite() {
   const [workoutPlans, setWorkoutPlans] = useState<WorkoutPlan[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   // Sample data for demonstration
-  const sampleWorkoutPlans: WorkoutPlan[] = [
+  const sampleWorkoutPlans = useMemo(() => [
     {
       $id: '1',
       $createdAt: '',
@@ -82,7 +81,7 @@ export function WorkoutPlansFromAppwrite() {
       price: 29.99,
       image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop'
     }
-  ];
+  ], []);
 
   useEffect(() => {
     const fetchWorkoutPlans = async () => {
@@ -96,7 +95,7 @@ export function WorkoutPlansFromAppwrite() {
         } else {
           setWorkoutPlans(sampleWorkoutPlans);
         }
-      } catch (err) {
+      } catch {
         setWorkoutPlans(sampleWorkoutPlans);
         console.log('Using sample workout plans data');
       } finally {
@@ -105,7 +104,7 @@ export function WorkoutPlansFromAppwrite() {
     };
 
     fetchWorkoutPlans();
-  }, []);
+  }, [sampleWorkoutPlans]);
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty.toLowerCase()) {

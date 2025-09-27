@@ -3,56 +3,32 @@ import { Models } from 'appwrite';
 // Extend the base Document type from Appwrite
 export interface Coach extends Models.Document {
   name: string;
+  email: string;
   specialty: string;
   experience: number;
   rating: number;
   hourlyRate: number;
   bio: string;
   image: string;
+  imageUrl?: string;
   certifications: string[];
   availability: string;
 }
 
-export interface Supplement extends Models.Document {
-  name: string;
-  brand: string;
-  category: string;
-  price: number;
-  rating: number;
-  description: string;
-  image: string;
-  benefits: string[];
-  ingredients: string;
-  servingSize: string;
-  servingsPerContainer: number;
-  affiliateLink: string;
-}
 
-export interface Footwear extends Models.Document {
-  name: string;
-  brand: string;
-  category: string;
-  price: number;
-  rating: number;
-  description: string;
-  image: string;
-  features: string[];
-  sizes: string[];
-  colors: string[];
-  affiliateLink: string;
-}
 
 export interface Workout extends Models.Document {
   title: string;
   description: string;
-  duration: number;
+  duration: string; // stored as string like "30 min"
   difficulty: string;
   category: string;
-  instructor: string;
   videoUrl: string;
-  thumbnail: string;
-  equipment: string[];
-  caloriesBurned: number;
+  thumbnailUrl: string;
+  instructor: string;
+  calories: string; // stored as string like "300-400"
+  rating: number;
+  isFree: boolean;
 }
 
 export interface WorkoutPlan extends Models.Document {
@@ -66,28 +42,7 @@ export interface WorkoutPlan extends Models.Document {
   image: string;
 }
 
-export interface DietPlan extends Models.Document {
-  name: string;
-  description: string;
-  calories: number;
-  protein: number;
-  carbs: number;
-  fat: number;
-  meals: Meal[];
-  duration: number; // in weeks
-  price: number;
-  image: string;
-}
 
-export interface Meal {
-  name: string;
-  calories: number;
-  protein: number;
-  carbs: number;
-  fat: number;
-  ingredients: string[];
-  instructions: string;
-}
 
 export interface Newsletter extends Models.Document {
   email: string;

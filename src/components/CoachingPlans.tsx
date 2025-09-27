@@ -116,7 +116,7 @@ export function CoachingPlans() {
               </div>
 
               <div className="space-y-4">
-                <h4 className="font-semibold text-white">What's included:</h4>
+                <h4 className="font-semibold text-white">What&apos;s included:</h4>
                 {plan.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-green-400 flex-shrink-0" />

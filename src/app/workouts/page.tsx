@@ -1,8 +1,15 @@
+'use client';
+
 import { WorkoutsList } from '@/components/WorkoutsList';
 import { WorkoutFilters } from '@/components/WorkoutFilters';
-import { Suspense } from 'react';
+import { useState } from 'react';
 
 export default function WorkoutsPage() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedDifficulty, setSelectedDifficulty] = useState('');
+  const [selectedDuration, setSelectedDuration] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+
   return (
     <div className="min-h-screen bg-black pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -15,13 +22,23 @@ export default function WorkoutsPage() {
           </p>
         </div>
 
-        <Suspense fallback={<div className="text-white">Loading filters...</div>}>
-          <WorkoutFilters />
-        </Suspense>
+        <WorkoutFilters 
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          selectedDifficulty={selectedDifficulty}
+          setSelectedDifficulty={setSelectedDifficulty}
+          selectedDuration={selectedDuration}
+          setSelectedDuration={setSelectedDuration}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+        />
 
-        <Suspense fallback={<div className="text-white">Loading workouts...</div>}>
-          <WorkoutsList />
-        </Suspense>
+        <WorkoutsList 
+          selectedCategory={selectedCategory}
+          selectedDifficulty={selectedDifficulty}
+          selectedDuration={selectedDuration}
+          searchTerm={searchTerm}
+        />
       </div>
     </div>
   );

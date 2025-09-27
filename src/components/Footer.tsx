@@ -48,8 +48,6 @@ export function Footer() {
             <ul className="space-y-2">
               <li><Link href="/coaching" className="text-gray-400 hover:text-white text-sm">Personal Coaching</Link></li>
               <li><Link href="/plans" className="text-gray-400 hover:text-white text-sm">Workout Plans</Link></li>
-              <li><Link href="/nutrition" className="text-gray-400 hover:text-white text-sm">Diet Plans</Link></li>
-              <li><Link href="/supplements" className="text-gray-400 hover:text-white text-sm">Supplements</Link></li>
             </ul>
           </div>
 
@@ -61,6 +59,8 @@ export function Footer() {
               <li><Link href="/faq" className="text-gray-400 hover:text-white text-sm">FAQ</Link></li>
               <li><Link href="/privacy" className="text-gray-400 hover:text-white text-sm">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-gray-400 hover:text-white text-sm">Terms of Service</Link></li>
+              <li><Link href="/admin" className="text-gray-400 hover:text-white text-sm">Admin</Link></li>
+              <li><Link href="/test" className="text-yellow-400 hover:text-yellow-300 text-sm">Test</Link></li>
             </ul>
           </div>
         </div>

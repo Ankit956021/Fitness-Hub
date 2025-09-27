@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Lock, User } from 'lucide-react';
 
 export function AdminAuth({ children }: { children: React.ReactNode }) {
@@ -8,22 +8,54 @@ export function AdminAuth({ children }: { children: React.ReactNode }) {
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
 
+  // Check for existing authentication on mount
+  useEffect(() => {
+    const savedAuth = localStorage.getItem('adminAuth');
+    if (savedAuth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simple authentication check (in production, use proper auth)
-    if (credentials.email === 'admin@fitnesshub.com' && credentials.password === 'admin123') {
-      setIsAuthenticated(true);
-    } else {
-      alert('Invalid credentials. Use admin@fitnesshub.com / admin123');
+    try {
+      // For demo purposes, use simple authentication
+      // In production, integrate with Appwrite Auth
+      if (credentials.email === 'admin@fitnesshub.com' && credentials.password === 'admin123') {
+        setIsAuthenticated(true);
+        localStorage.setItem('adminAuth', 'true');
+      } else {
+        alert('Invalid credentials. Use admin@fitnesshub.com / admin123');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('Login failed. Please try again.');
     }
 
     setIsLoading(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminAuth');
+    setIsAuthenticated(false);
+  };
+
   if (isAuthenticated) {
-    return <>{children}</>;
+    return (
+      <div>
+        <div className="fixed top-4 right-4 z-50">
+          <button
+            onClick={handleLogout}
+            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            Logout
+          </button>
+        </div>
+        {children}
+      </div>
+    );
   }
 
   return (

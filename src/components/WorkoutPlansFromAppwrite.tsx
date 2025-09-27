@@ -21,6 +21,7 @@ export function WorkoutPlansFromAppwrite() {
       $permissions: [],
       $databaseId: '',
       $collectionId: '',
+      $sequence: 0,
       name: 'Beginner Strength',
       description: 'Perfect starting point for building strength and muscle. 3 workouts per week focusing on compound movements.',
       duration: 8,
@@ -37,6 +38,7 @@ export function WorkoutPlansFromAppwrite() {
       $permissions: [],
       $databaseId: '',
       $collectionId: '',
+      $sequence: 0,
       name: 'HIIT Fat Burn',
       description: 'High-intensity interval training program designed to maximize fat loss in minimal time. 4 workouts per week.',
       duration: 6,
@@ -53,6 +55,7 @@ export function WorkoutPlansFromAppwrite() {
       $permissions: [],
       $databaseId: '',
       $collectionId: '',
+      $sequence: 0,
       name: 'Advanced Powerlifting',
       description: 'Elite-level powerlifting program for serious athletes. Focus on squat, bench, and deadlift mastery.',
       duration: 12,
@@ -69,6 +72,7 @@ export function WorkoutPlansFromAppwrite() {
       $permissions: [],
       $databaseId: '',
       $collectionId: '',
+      $sequence: 0,
       name: 'Bodyweight Mastery',
       description: 'Complete bodyweight training program. Build strength and muscle using just your body weight.',
       duration: 10,
@@ -217,7 +221,7 @@ export function WorkoutPlansFromAppwrite() {
 
                 {/* Features */}
                 <div className="mb-6">
-                  <p className="text-gray-400 text-sm mb-2">What's included:</p>
+                  <p className="text-gray-400 text-sm mb-2">What&apos;s included:</p>
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 text-sm text-gray-300">
                       <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>

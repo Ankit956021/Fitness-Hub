@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Dumbbell, Apple, Users, ShoppingBag, Mail, Footprints } from 'lucide-react';
+import { Dumbbell, Users, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 const services = [
@@ -18,27 +18,6 @@ const services = [
     description: "1-on-1 coaching sessions with certified fitness professionals",
     link: "/coaching",
     color: "from-purple-500 to-purple-600"
-  },
-  {
-    icon: Apple,
-    title: "Nutrition Plans",
-    description: "Customized diet plans tailored to your goals and preferences",
-    link: "/nutrition",
-    color: "from-green-500 to-green-600"
-  },
-  {
-    icon: ShoppingBag,
-    title: "Supplements",
-    description: "Premium supplement recommendations for optimal performance",
-    link: "/supplements",
-    color: "from-orange-500 to-orange-600"
-  },
-  {
-    icon: Footprints,
-    title: "Fitness Gear",
-    description: "Top-quality footwear and equipment for your fitness journey",
-    link: "/gear",
-    color: "from-red-500 to-red-600"
   },
   {
     icon: Mail,
@@ -63,7 +42,7 @@ export function ServicesOverview() {
             Everything You Need
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            From workouts to nutrition, coaching to gear - we've got your complete fitness journey covered
+            From workouts to nutrition, coaching to gear - we&apos;ve got your complete fitness journey covered
           </p>
         </motion.div>
 

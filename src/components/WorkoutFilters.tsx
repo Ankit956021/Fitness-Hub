@@ -18,11 +18,27 @@ const categories = [
 const difficulties = ['Beginner', 'Intermediate', 'Advanced'];
 const durations = ['< 15 min', '15-30 min', '30-45 min', '45+ min'];
 
-export function WorkoutFilters() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedDifficulty, setSelectedDifficulty] = useState('');
-  const [selectedDuration, setSelectedDuration] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
+interface WorkoutFiltersProps {
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
+  selectedDifficulty: string;
+  setSelectedDifficulty: (difficulty: string) => void;
+  selectedDuration: string;
+  setSelectedDuration: (duration: string) => void;
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+}
+
+export function WorkoutFilters({
+  selectedCategory,
+  setSelectedCategory,
+  selectedDifficulty,
+  setSelectedDifficulty,
+  selectedDuration,
+  setSelectedDuration,
+  searchTerm,
+  setSearchTerm
+}: WorkoutFiltersProps) {
   const [showFilters, setShowFilters] = useState(false);
 
   return (

@@ -26,23 +26,8 @@ export function Navbar() {
               <Link href="/plans" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Plans
               </Link>
-              <Link href="/nutrition" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Nutrition
-              </Link>
               <Link href="/coaching" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Coaching
-              </Link>
-              <Link href="/supplements" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Supplements
-              </Link>
-              <Link href="/gear" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Gear
-              </Link>
-              <Link href="/admin" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Admin
-              </Link>
-              <Link href="/test" className="text-yellow-400 hover:text-yellow-300 px-3 py-2 rounded-md text-sm font-medium">
-                Test
               </Link>
             </div>
           </div>
@@ -76,17 +61,8 @@ export function Navbar() {
             <Link href="/plans" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               Plans
             </Link>
-            <Link href="/nutrition" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Nutrition
-            </Link>
             <Link href="/coaching" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
               Coaching
-            </Link>
-            <Link href="/supplements" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Supplements
-            </Link>
-            <Link href="/gear" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-              Gear
             </Link>
             <Link href="/coaching" className="bg-blue-600 hover:bg-blue-700 text-white block px-3 py-2 rounded-md text-base font-medium">
               Get Coached

@@ -1,4 +1,4 @@
-import { AdminDashboard } from '@/components/admin/AdminDashboard';
+import { AdminDashboardSimplified } from '@/components/admin/AdminDashboardSimplified';
 import { AdminAuth } from '@/components/admin/AdminAuth';
 import { Metadata } from 'next';
 
@@ -12,7 +12,7 @@ export default function AdminPage() {
     <div className="min-h-screen bg-gray-900">
       {/* In a real app, you'd check authentication here */}
       <AdminAuth>
-        <AdminDashboard />
+        <AdminDashboardSimplified />
       </AdminAuth>
     </div>
   );

@@ -161,7 +161,7 @@ export function CoachList() {
         >
           <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-2xl p-8 border border-blue-500/20">
             <h3 className="text-3xl font-bold text-white mb-4">
-              Can't decide which coach is right for you?
+              Can&apos;t decide which coach is right for you?
             </h3>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Book a free 15-minute consultation call to discuss your goals and find the perfect match.
